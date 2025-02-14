@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Function f7 </title>
+        <script>
+            function f7(basket,price){
+                let totalCost =0;
+
+                for(let product in basket){
+                    if(prices.hasOwnProperty(product)){
+                        totalCost +=prices[product]*basket[product];
+                    }
+                }
+                return totalCost;
+            }
+            function Test(){
+                let basket ={
+                    'apple': 3,
+                    'banana': 2,
+                    'orange': 5
+                };
+                let prices = {
+                'apple': 1.2,
+                'banana': 0.5,
+                'orange': 0.8
+            };
+            let totalCost = f7(basket, prices);
+            document.getElementById("result").innerText = `Total cost of the basket: $${totalCost.toFixed(2)}`;
+        }
+            
+        </script>
+    </head>
+    <body>
+        <h1>Function f7</h1>
+        <p>This page tests the f7 function which calculates the total cost of a basket based on product prices.</p>
+        <button onclick="runTest()">Calculate Total Cost</button>
+
+    <p id="result"></p>
+    </body>
+    </html>
+    

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiple in Array</title>
+        <script>
+            function f4(a, b, l) {
+                let sum = 0;
+                for (let i = 0; i < l.length; i++) {
+                    if (l[i] % a === 0 || l[i] % b === 0) {
+                        sum += l[i];
+                    }
+                }
+                return sum;
+            }
+
+            function doIt() {
+                let a = parseInt(document.getElementById("a").value);
+                let b = parseInt(document.getElementById("b").value);
+                let l = document.getElementById("l").value.split(',').map(Number); // Corrected this line
+                let result = f4(a, b, l);
+                alert("The sum of multiples of " + a + " or " + b + " in the list is: " + result);
+            }
+        </script>
+    </head>
+    <body>
+        <label for="a">Enter a:</label>
+        <input type="text" id="a" width="6">
+        <br>
+        <label for="b">Enter b:</label>
+        <input type="text" id="b" width="6">
+        <br>
+        <label for="l">Enter list (comma-separated):</label>
+        <input type="text" id="l" width="20">
+        <br>
+        <button onclick="doIt()">Press me!</button>
+    </body>
+</html>

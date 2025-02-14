@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Array Multiple of Sum</title>
+    </head>
+    <body>
+        <h1>Multiples of factors</h1>
+        <label for="a">Enter Array a:</label>
+        <input type="text" id="a" placeholder="Enter numbers for a(comma-separated) " width="300">
+        <br><br>
+
+        <label for="l">Enter Array l:</label>
+        <input type="text" id="l" placeholder="Enter numbers for l(comma-separated) " width="300">
+        <br><br>
+        <button onclick="calculateSum()">Calculate Sum</button>
+
+        <script>
+            function f5(a,l) {
+                let sum=0;
+                for(let i=0;i<l.length;i++){    
+                    for(let j=0;j<a.length;j++){
+                        if(l[i]% a[j]===0){
+                            sum+= l[i];
+                            break;
+                        }
+                    }
+                }
+                return sum;
+            }
+            function calculateSum(){
+                const aInput = document.getElementById('a').value;
+                const lInput = document.getElementById('l').value;
+                const a = aInput.split(',').map(Number);
+                const l = lInput.split(',').map(Number);
+                const result = f5(a, l);
+                alert("The sum of multiples is: " + result);
+            }
+
+        </script>
+
+    </body>
+</html>

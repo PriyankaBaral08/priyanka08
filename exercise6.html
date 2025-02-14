@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Array Multiple</title>
+    </head>
+    <body>
+        <h2>Find the sum of Multiple</h2>
+        <label for="a">Array a(Factors):</label>
+        <input type="text" id="a" placeholder="Enter factors ">
+        <br><br>
+
+        <label for="l">Array l(Numbers):</label>
+        <input type="text" id="l" placeholder="Enter numbers ">
+        <br><br>
+        <button onclick="mapNums()">Press Me!</button>
+
+        <script>
+            function splitS2A(inputStr){
+                return inputStr.split(',').map(Number).filter(num=> !isNaN(num));
+            }
+            function f6(a, l) {
+            let sum = 0;
+            // Loop through each number in l
+            for (let i = 0; i < l.length; i++) {
+                // Check if the number is divisible by any factor in a
+                for (let j = 0; j < a.length; j++) {
+                    if (l[i] % a[j] === 0) {
+                        sum += l[i];
+                        break;
+                    }
+                }
+            }
+            return sum;
+        }
+
+        function mapNums() {
+    
+            const aInput = document.getElementById("a").value;
+            const lInput = document.getElementById("l").value;
+
+    
+            const aArray = splitS2A(aInput);
+            const lArray = splitS2A(lInput);
+
+            const result = f6(aArray, lArray);
+
+            alert("The sum of all multiples is: " + result);
+        }
+    </script>
+
+        </script>
+    </body>
+</html>

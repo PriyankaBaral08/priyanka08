@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Get Cost Price</title>
+        <script>
+            class basket{
+                constructor(){
+                    this.items = {};
+                }
+             addItem(product, quantity) {
+                if(this.items[product]){
+                    this.items[product]+= quantity;
+                } else{
+                    this.items[product] = quantity;
+                }
+             }
+             getCost(prices) {
+                let totalCost = 0;
+                for(let product in this.items){
+                    if(prices[product]){
+                        totalCost += this.items[product] * prices[product];
+                    }
+                }
+                return totalCost;
+             }
+            }
+            function test(){
+                let basket = new basket();
+                basket.addItem("Orange", 4);
+                basket.addItem("grapes",3);
+                basket.addItem("Oranges",2);
+
+                let prices = {"Orange":2, "grapes":2};
+
+                document.getElementById("output").innerText = "Total Cost: $" + basket.getCost(prices);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Cart</h1>
+        <button onclick="test()">Calculate totalCost</button>
+        <p id="output" ></p>   
+    </body>
+</html>
+

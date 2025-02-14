@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiples</title>
+        <script>
+            function Multiple(a,b,n){
+                let sum=0;
+                for(let i=1;i<n;i++)
+            {
+                if(i%a===0||i%b===0){
+                    sum+= i;
+                }
+            }
+            return sum;
+            }
+
+            function doIt(){
+                let a= parseInt(document. getElementById("a").value);
+                let b= parseInt(document. getElementById("b").value);
+                let n= parseInt(document. getElementById("n").value);
+                let result = Multiple(a,b,n);
+                alert("The sum of multiples of "+a+" or "+b+" below "+n+"is:"+result);
+
+            }
+        </script>
+    </head>
+    <body>
+        <label for="a">Enter a:</label>
+<input type="text" id="a" width="6">
+<br>
+<label for="b">Enter b:</label>
+<input type="text" id="b" width="6">
+<br>
+<label for="n">Enter n:</label>
+<input type="text" id="n" width="6">
+<br>
+<button onclick="doIt()">Press me!</button>
+    </body>
+</html>
